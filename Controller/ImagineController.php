@@ -143,8 +143,8 @@ class ImagineController
         try {
             $filters = $request->query->get('filters', array());
 
-            foreach($filters as $key => $filter) {
-                if ($filter == '') {
+            foreach($filters as $key => $filterKey) {
+                if ($filterKey == '') {
                     $filters[$key] = [];
                 }
             }
