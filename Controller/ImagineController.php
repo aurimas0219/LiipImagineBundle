@@ -151,6 +151,12 @@ class ImagineController
 
         try {
             $filters = $request->query->get('filters', array());
+            
+            foreach($filters as $key => $filter) {
+                if ($filter == '') {
+                    $filters[$key] = [];
+                }
+            }
 
             if (!is_array($filters)) {
                 throw new NotFoundHttpException(sprintf('Filters must be an array. Value was "%s"', $filters));
